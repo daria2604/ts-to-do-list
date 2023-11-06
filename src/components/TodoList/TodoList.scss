@@ -1,0 +1,36 @@
+.todoList {
+  margin-top: 101px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 52px 129px;
+
+  &:last-of-type {
+    margin-top: 0;
+  }
+}
+
+.heading__completed {
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 52px 0;
+}
+
+@media (max-width: 1110px) {
+  .todoList {
+    column-gap: 82px;
+  }
+}
+
+@media (max-width: 600px) {
+  .todoList {
+    margin-top: 70px;
+    row-gap: 31px;
+  }
+
+  .heading__completed {
+    font-size: 18px;
+    margin: 49px 0 31px 0;
+  }
+}

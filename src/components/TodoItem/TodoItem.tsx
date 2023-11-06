@@ -14,17 +14,27 @@ const TodoItem: React.FC<ITodoItem> = ({
   toggleTodo,
 }) => {
   return (
-    <li>
-      <input
-        type='checkbox'
-        defaultChecked={complete}
-        className='todoItem'
-        onChange={() => toggleTodo(id)}
-      />
-      {title}
+    <li className={`todo-item ${!complete ? '' : 'todo-item__completed'}`}>
+      <label
+        htmlFor='todoItem'
+        className={`todo-item__wrap ${
+          complete ? 'todo-item__wrap_completed' : ''
+        }`}
+      >
+        <input
+          type='checkbox'
+          id='todoItem'
+          defaultChecked={complete}
+          className='visually-hidden'
+          onChange={() => toggleTodo(id)}
+        />
+        <span className='todo-item__checkbox'></span>
+        {title}
+      </label>
+
       <button
         type='button'
-        className='todoItem__button'
+        className='todo-item__button'
         onClick={() => removeTodo(id)}
       >
         &times;

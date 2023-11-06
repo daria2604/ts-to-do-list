@@ -1,0 +1,27 @@
+.button {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .button {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: -1px -1px 2px 0px rgba(22, 26, 30, 0.50) inset, 1px 1px 2px 0px rgba(90, 102, 120, 0.30) inset;
+
+    &__wrap {
+      display: grid;
+      justify-items: end;
+      margin-top: 10%;
+    }
+
+    &__add {
+      background: url(../../images/plus.svg);
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

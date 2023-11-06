@@ -1,0 +1,87 @@
+.todo-item {
+  width: 449px;
+  padding: 20px 24px;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  column-gap: 24px;
+  border-radius: 16px;
+  box-shadow: 5px 5px 13px 0px rgba(48, 54, 64, 0.90), -5px -5px 10px 0px rgba(64, 74, 86, 0.90), 5px -5px 10px 0px rgba(48, 54, 64, 0.20), -5px 5px 10px 0px rgba(48, 54, 64, 0.20), -1px -1px 2px 0px rgba(48, 54, 64, 0.50) inset, 1px 1px 2px 0px rgba(64, 74, 86, 0.30) inset;
+
+  &__wrap {
+    display: flex;
+    column-gap: 27px;
+    width: 100%;
+    align-items: center;
+
+    &_completed {
+      text-decoration: line-through;
+    }
+  }
+
+  &__checkbox {
+    width: 18px;
+    height: 18px;
+    display: block;
+    background-color: transparent;
+    border: 2.5px solid $light-color;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &__button {
+    font-size: 30px;
+
+    &:hover {
+      opacity: .7;
+      transition: all .2s ease;
+    }
+  }
+
+  &__completed {
+    box-shadow: 5px 5px 13px 0px rgba(48, 54, 64, 0.90) inset, -5px -5px 10px 0px rgba(64, 74, 86, 0.90) inset, 5px -5px 10px 0px rgba(48, 54, 64, 0.20) inset, -5px 5px 10px 0px rgba(48, 54, 64, 0.20) inset, -1px -1px 2px 0px rgba(48, 54, 64, 0.50), 1px 1px 2px 0px rgba(64, 74, 86, 0.30);
+  }
+}
+
+input[type=checkbox]:checked + .todo-item__checkbox {
+  background-color: $light-color;
+}
+
+@media (max-width: 1200px) {
+  .todo-item {
+    width: 400px;
+  }
+}
+
+@media (max-width: 1110px) {
+  .todo-item {
+    width: 45%;
+  }
+}
+
+@media (max-width: 995px) {
+  .todo-item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .todo-item {
+    padding: 12px 13px;
+    font-size: 16px;
+
+    &__wrap {
+      column-gap: 12px;
+    }
+
+    &__checkbox {
+      width: 12px;
+      height: 12px;
+      border-width: 2px;
+    }
+
+    &__button {
+      font-size: 24px;
+    }
+  }
+}

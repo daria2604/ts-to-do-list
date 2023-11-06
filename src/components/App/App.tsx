@@ -1,10 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ITodo } from '../../types/data';
 import TodoList from '../TodoList/TodoList';
+import AddButton from '../AddButton/AddButton';
+import CloseButton from '../CloseButton/CloseButton';
 
 const App: React.FC = () => {
   const [value, setValue] = useState('');
   const [todoList, setTodoList] = useState<ITodo[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -32,6 +35,7 @@ const App: React.FC = () => {
         },
       ]);
       setValue('');
+      setIsOpen(false);
     }
   };
 
@@ -52,9 +56,19 @@ const App: React.FC = () => {
     );
   };
 
+  const handleOpenInput = () => {
+    setIsOpen(true);
+  };
+
+  const handleCloseInput = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div className='page'>
-      <div className='input'>
+      <h1 className='heading'>My Tasks</h1>
+      <div className={`input ${isOpen ? 'input_open' : ''}`}>
+        <CloseButton onClick={handleCloseInput} />
         <input
           type='text'
           className='input__text'
@@ -64,15 +78,18 @@ const App: React.FC = () => {
           onKeyDown={handleEnter}
           ref={inputRef}
         />
-        <button type='submit' className='input__button' onClick={addTodo}>
-          Add
-        </button>
+        <button
+          type='submit'
+          className='input__button'
+          onClick={addTodo}
+        ></button>
       </div>
       <TodoList
         items={todoList}
         removeTodo={removeTodo}
         toggleTodo={toggleTodo}
       />
+      <AddButton onClick={handleOpenInput} />
     </div>
   );
 };

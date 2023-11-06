@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+@import './vendor/styles/variables';
+@import './vendor/styles/globals';
+
+@import './components/App/App';
+@import './components/TodoList/TodoList';
+@import './components/TodoItem/TodoItem';
+@import './components/AddButton/AddButton';
+@import './components/CloseButton/CloseButton';

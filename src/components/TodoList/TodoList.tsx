@@ -14,16 +14,39 @@ const TodoList: React.FC<ITodoListProps> = ({
   toggleTodo,
 }) => {
   return (
-    <ul className='todoList'>
-      {items.map((item) => (
-        <TodoItem
-          key={item.id}
-          {...item}
-          removeTodo={removeTodo}
-          toggleTodo={toggleTodo}
-        />
-      ))}
-    </ul>
+    <>
+      <ul className='todoList'>
+        {items.map(
+          (item) =>
+            !item.complete && (
+              <TodoItem
+                key={item.id}
+                {...item}
+                removeTodo={removeTodo}
+                toggleTodo={toggleTodo}
+              />
+            )
+        )}
+      </ul>
+      {items.length !== 0 && (
+        <>
+          <h2 className='heading__completed'>Completed</h2>
+          <ul className='todoList'>
+            {items.map(
+              (item) =>
+                item.complete && (
+                  <TodoItem
+                    key={item.id}
+                    {...item}
+                    removeTodo={removeTodo}
+                    toggleTodo={toggleTodo}
+                  />
+                )
+            )}
+          </ul>
+        </>
+      )}
+    </>
   );
 };
 
